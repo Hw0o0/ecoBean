@@ -1,4 +1,4 @@
-package com.coffeeSale.ecoBean;
+package com.coffeeSale.coffeeSaleEcoBean;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
