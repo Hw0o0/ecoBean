@@ -46,10 +46,11 @@ public class ReusableCupService {
                 .toList();
     }
     @Transactional
-    public void reusableCupReturn(Long userId, Long reusableCupId,Long shopId){
-        User user = userRepository.findById(userId).orElseThrow();
-        user.setReusableUsed(user.getReusableUsed()+3); //유저의 리유저블 컵 사용횟수를 올려준다.
+    public ReusableCup reusableCupReturn(Long reusableCupId,Long shopId){
         ReusableCup reusableCup = reusableCupRepository.findById(reusableCupId).orElseThrow();
+        User user = userRepository.findById(reusableCup.getUser().getId()).orElseThrow();
+        user.setReusableUsed(user.getReusableUsed()+3); //유저의 리유저블 컵 사용횟수를 올려준다.
+
         Shop shop = shopRepository.findById(shopId).orElseThrow();
         shop.setReusableCupInventory(shop.getReusableCupInventory()+1);
         shopRepository.save(shop);
@@ -59,7 +60,7 @@ public class ReusableCupService {
         reusableCup.setNumberUses(0);
         reusableCup.setPurchaseDate(null);
         reusableCup.setReturned(true);
-        reusableCupRepository.save(reusableCup);
+        return reusableCupRepository.save(reusableCup);
     }
 
     public void reusableCupMenuRegistration(Long reusableCupId,Long menuId){

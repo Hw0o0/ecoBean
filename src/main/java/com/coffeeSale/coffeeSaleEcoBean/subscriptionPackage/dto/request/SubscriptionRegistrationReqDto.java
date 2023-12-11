@@ -1,4 +1,4 @@
-package com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.dto;
+package com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.dto.request;
 
 import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.domain.MenuPackage;
 import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.domain.Subscription;
@@ -10,13 +10,13 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Data
-public class RegistrationSubscriptionDto {
+public class SubscriptionRegistrationReqDto {
 
     private String recommendedUserId;
 
     private String paymentMethod;
 
-    public Subscription toEntity(User user, Coupon coupon, MenuPackage menuPackage, RegistrationSubscriptionDto registrationSubscriptionDto) {
+    public Subscription toEntity(User user, Coupon coupon, MenuPackage menuPackage, SubscriptionRegistrationReqDto subscriptionRegistrationRequestDto) {
         int period = menuPackage.getPeriod(); // 메뉴 패키지의 개월 수
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
@@ -26,8 +26,8 @@ public class RegistrationSubscriptionDto {
                 .user(user)
                 .coupon(coupon)
                 .menuPackage(menuPackage)
-                .recommendedUserId(registrationSubscriptionDto.getRecommendedUserId())
-                .paymentMethod(registrationSubscriptionDto.getPaymentMethod())
+                .recommendedUserId(subscriptionRegistrationRequestDto.getRecommendedUserId())
+                .paymentMethod(subscriptionRegistrationRequestDto.getPaymentMethod())
                 .DeadlineDate(calendar.getTime())
                 .build();
     }

@@ -1,6 +1,6 @@
 package com.coffeeSale.coffeeSaleEcoBean.menu.domain;
 
-import com.coffeeSale.coffeeSaleEcoBean.common.BaseEntity;
+import com.coffeeSale.coffeeSaleEcoBean.common.entity.BaseEntity;
 import com.coffeeSale.coffeeSaleEcoBean.orders.domain.OrderDetails;
 import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.domain.AvailableMenu;
 import com.coffeeSale.coffeeSaleEcoBean.user.domain.ShoppingCartItems;

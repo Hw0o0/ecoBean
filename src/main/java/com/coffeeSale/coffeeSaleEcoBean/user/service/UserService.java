@@ -38,12 +38,16 @@ public class UserService {
                 });
     }
     //회원 가져오기
-    public User getUser(String userId) {
+    public User getIdUser(String userId) {
         return userRepository.findByUserId(userId).orElseThrow();
     }
 
     public boolean login(UserLoginDto userLoginDto){
-        User user = getUser(userLoginDto.getUserId());
+        User user = getIdUser(userLoginDto.getUserId());
         return user.getPassword().equals(userLoginDto.getPassword());
+    }
+
+    public User getUser(Long userId) {
+        return userRepository.findById(userId).orElseThrow();
     }
 }

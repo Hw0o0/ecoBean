@@ -18,7 +18,6 @@ public class ReusableCup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
@@ -42,4 +41,5 @@ public class ReusableCup {
     private Date purchaseDate;
 
     private boolean returned;
+
 }

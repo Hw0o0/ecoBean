@@ -1,4 +1,4 @@
-package com.coffeeSale.coffeeSaleEcoBean.common;
+package com.coffeeSale.coffeeSaleEcoBean.common.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

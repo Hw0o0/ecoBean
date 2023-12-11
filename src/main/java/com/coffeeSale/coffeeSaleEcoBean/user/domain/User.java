@@ -53,6 +53,8 @@ public class User {
     @Column(nullable = false)
     private Rating rating;
 
+    private boolean admin;
+
     @ToString.Exclude
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Authority> authorities = new HashSet<>();
@@ -89,7 +91,6 @@ public class User {
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private EnvironmentTree environmentTree;
 
-    private boolean admin;
     public static User createdUser(UserJoinDto userJoinDto){
         return User.builder()
                 .userId(userJoinDto.getUserId())

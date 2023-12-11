@@ -1,6 +1,6 @@
 package com.coffeeSale.coffeeSaleEcoBean.user.domain;
 
-import com.coffeeSale.coffeeSaleEcoBean.common.BaseEntity;
+import com.coffeeSale.coffeeSaleEcoBean.common.entity.BaseEntity;
 import com.coffeeSale.coffeeSaleEcoBean.user.common.Level;
 import jakarta.persistence.*;
 import lombok.*;

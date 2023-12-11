@@ -1,6 +1,6 @@
 package com.coffeeSale.coffeeSaleEcoBean.security;
 
-import com.coffeeSale.coffeeSaleEcoBean.common.ErrorResponse;
+import com.coffeeSale.coffeeSaleEcoBean.common.dto.response.ErrorResDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.DispatcherType;
 import lombok.RequiredArgsConstructor;
@@ -52,7 +52,7 @@ public class SecurityConfig {
 
     private final AuthenticationEntryPoint unauthorizedEntryPoint =
             (request, response, authException) -> {
-                ErrorResponse fail = new ErrorResponse(HttpStatus.UNAUTHORIZED, "Spring security unauthorized...");
+                ErrorResDto fail = new ErrorResDto(HttpStatus.UNAUTHORIZED, "Spring security unauthorized...");
                 response.setStatus(HttpStatus.UNAUTHORIZED.value());
                 String json = new ObjectMapper().writeValueAsString(fail);
                 response.setContentType(MediaType.APPLICATION_JSON_VALUE);
@@ -63,7 +63,7 @@ public class SecurityConfig {
 
     private final AccessDeniedHandler accessDeniedHandler =
             (request, response, accessDeniedException) -> {
-                ErrorResponse fail = new ErrorResponse(HttpStatus.FORBIDDEN, "Spring security forbidden...");
+                ErrorResDto fail = new ErrorResDto(HttpStatus.FORBIDDEN, "Spring security forbidden...");
                 response.setStatus(HttpStatus.FORBIDDEN.value());
                 String json = new ObjectMapper().writeValueAsString(fail);
                 response.setContentType(MediaType.APPLICATION_JSON_VALUE);

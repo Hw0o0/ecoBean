@@ -2,7 +2,7 @@ package com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.service;
 
 import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.domain.MenuPackage;
 import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.domain.Subscription;
-import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.dto.RegistrationSubscriptionDto;
+import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.dto.request.SubscriptionRegistrationReqDto;
 import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.repository.MenuPackageRepository;
 import com.coffeeSale.coffeeSaleEcoBean.subscriptionPackage.repository.SubscriptionRepository;
 import com.coffeeSale.coffeeSaleEcoBean.user.domain.Coupon;
@@ -24,15 +24,20 @@ public class SubscriptionService {
     private final CouponRepository couponRepository;
     private final UserRepository userRepository;
 
+    public Long getSubscriptionMenuPackageId(User user){
+        Subscription subscription = subscriptionRepository.findByUser(user);
+        return subscription.getMenuPackage().getId();
+    }
+
     //정기 구독 신청하기.
     @Transactional
-    public Subscription registrationSubscription(Long menuPackageId, Long couponId, Long userId, RegistrationSubscriptionDto registrationSubscriptionDto){
+    public Subscription registrationSubscription(Long menuPackageId, Long couponId, Long userId, SubscriptionRegistrationReqDto subscriptionRegistrationRequestDto){
         MenuPackage menuPackage = menuPackageRepository.findById(menuPackageId).orElseThrow();
         Coupon coupon = couponRepository.findById(couponId).orElseThrow();
         User user = userRepository.findById(userId).orElseThrow();
-        Subscription subscription = registrationSubscriptionDto.toEntity(user,coupon,menuPackage,registrationSubscriptionDto);
+        Subscription subscription = subscriptionRegistrationRequestDto.toEntity(user,coupon,menuPackage,subscriptionRegistrationRequestDto);
         useCoupon(coupon,subscription,menuPackage);
-        return subscriptionRepository.save(subscription);
+        return subscription;
     }
 
     //정기 구독 연장해주는 메서드
