@@ -20,22 +20,6 @@ public class Menu extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "shopping_cart_items",fetch = FetchType.LAZY)
-    private List<ShoppingCartItems> shoppingCartItems = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "order_details",fetch = FetchType.LAZY)
-    private List<OrderDetails> orderDetails = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "available_menu",fetch = FetchType.LAZY)
-    private List<AvailableMenu> availableMenus = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "menu_recipe",fetch = FetchType.LAZY)
-    private List<MenuRecipe> menuRecipes = new ArrayList<>();
-
     @Column(nullable = false)
     private String menuName;
 

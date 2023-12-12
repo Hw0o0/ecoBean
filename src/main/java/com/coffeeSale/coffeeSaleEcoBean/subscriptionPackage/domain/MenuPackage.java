@@ -18,14 +18,6 @@ public class MenuPackage extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "available_menu",fetch = FetchType.LAZY)
-    private List<AvailableMenu> availableMenus = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "subscription",fetch = FetchType.LAZY)
-    private List<Subscription> subscriptions = new ArrayList<>();
-
     @Column(nullable = false)
     private String packageName;
 

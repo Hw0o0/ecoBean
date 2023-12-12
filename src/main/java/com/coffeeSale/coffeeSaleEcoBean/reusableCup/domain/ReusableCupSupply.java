@@ -29,13 +29,8 @@ public class ReusableCupSupply {
     @ManyToOne(fetch = FetchType.LAZY)
     private ReusableCupSupply reusableCupSupply;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "reusable_cup",fetch = FetchType.LAZY)
-    private List<ReusableCup> reusableCupList = new ArrayList<>();
-
     @Column(nullable = false)
     private Integer numberUses;
-
 
     private Date purchaseDate;
 

@@ -40,13 +40,6 @@ public class Orders extends BaseEntity {
     @OneToOne(fetch = FetchType.LAZY)
     private Coupon coupon;
 
-    @ToString.Exclude
-    @OneToOne(mappedBy = "point_details",fetch = FetchType.LAZY)
-    private PointDetails pointDetails;
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "order_details",fetch = FetchType.LAZY)
-    private List<OrderDetails> orderDetails = new ArrayList<>();
 
     @Column(nullable = false)
     private String payMethod;

@@ -17,10 +17,6 @@ public class Suppliers extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "supplys",fetch = FetchType.LAZY)
-    private List<Supplys> supplys = new ArrayList<>();
-
     @Column(nullable = false)
     private String supplierName;
 

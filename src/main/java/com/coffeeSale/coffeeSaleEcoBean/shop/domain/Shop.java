@@ -21,26 +21,6 @@ public class Shop extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "supplys",fetch = FetchType.LAZY)
-    private List<Supplys> supplys = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "shop_ingredient_inventory",fetch = FetchType.LAZY)
-    private List<ShopIngredientInventory> shopIngredientInventories = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "orders",fetch = FetchType.LAZY)
-    private List<Orders> orders = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "subscription_order",fetch = FetchType.LAZY)
-    private List<SubscriptionOrder> subscriptionOrders = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "reusable_cup_returned_details",fetch = FetchType.LAZY)
-    private List<ReusableCupReturnedDetails> reusableCupReturnedDetails = new ArrayList<>();
-
     @Column(nullable = false)
     private String shopName;
 

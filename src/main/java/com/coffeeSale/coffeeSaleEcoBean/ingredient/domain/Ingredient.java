@@ -20,18 +20,6 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "ingredient_supply_details",fetch = FetchType.LAZY)
-    private List<IngredientSupplyDetails> ingredientSupplyDetails = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "shop_ingredient_inventory",fetch = FetchType.LAZY)
-    private List<ShopIngredientInventory> shopIngredientInventories = new ArrayList<>();
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "menu_recipe",fetch = FetchType.LAZY)
-    private List<MenuRecipe> menuRecipes = new ArrayList<>();
-
     @Column(nullable = false)
     private String ingredientName;
 

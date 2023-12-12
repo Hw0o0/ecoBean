@@ -33,10 +33,6 @@ public class Subscription extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private MenuPackage menuPackage;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "subscription_order",fetch = FetchType.LAZY)
-    private List<SubscriptionOrder> subscriptionOrders = new ArrayList<>();
-
     @Column(nullable = false)
     private String recommendedUserId;
 

@@ -30,10 +30,6 @@ public class ReusableCup {
     @ManyToOne(fetch = FetchType.LAZY)
     private ReusableCupSupply reusableCupSupply;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "reusable_cup_returned_details",fetch = FetchType.LAZY)
-    private List<ReusableCupReturnedDetails> reusableCupReturnedDetails = new ArrayList<>();
-
     @Column(nullable = false)
     private Integer numberUses;
 

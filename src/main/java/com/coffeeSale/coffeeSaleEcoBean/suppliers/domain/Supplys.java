@@ -30,14 +30,6 @@ public class Supplys {
     @ManyToOne(fetch = FetchType.LAZY)
     private Shop shop;
 
-    @ToString.Exclude
-    @OneToOne(mappedBy = "reusable_cup_supply",fetch = FetchType.LAZY)
-    private ReusableCupSupply reusableCupSupplies;
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "ingredient_supply_details",fetch = FetchType.LAZY)
-    private List<IngredientSupplyDetails> ingredientSupplyDetails = new ArrayList<>();
-
     private Integer totalPrice;
 
     private Date dueDate;

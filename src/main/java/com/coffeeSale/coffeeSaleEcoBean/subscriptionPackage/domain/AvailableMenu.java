@@ -28,10 +28,6 @@ public class AvailableMenu {
     @Column(nullable = false)
     private Integer deductedAmount;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "subscription_order",fetch = FetchType.LAZY)
-    private List<SubscriptionOrder> subscriptionOrders = new ArrayList<>();
-
     public static AvailableMenu createAvailMenu(MenuPackage menuPackage, Menu menu,Integer deductedAmount){
         return AvailableMenu.builder()
                 .menuPackage(menuPackage)
